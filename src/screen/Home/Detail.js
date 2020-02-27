@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import {DATA} from '../../utils/contans';
 import {Navigation} from 'react-native-navigation';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class Detail extends Component {
   constructor(props) {
@@ -43,11 +43,11 @@ export default class Detail extends Component {
     let star = [];
 
     for (let i = 0; i < OverallStarRating; i++) {
-      star.push(<Icon name="ios-star" size={30} color="#fc9619" />);
+      star.push(<Icon name="ios-star" size={30} color="#F8A634" />);
     }
 
     for (let i = 0; i < 5 - OverallStarRating; i++) {
-      star.push(<Icon name="ios-star" size={30} color="#c3c1c1" />);
+      star.push(<Icon name="ios-star" size={30} color="#000000" />);
     }
 
     return (

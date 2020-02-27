@@ -12,7 +12,7 @@ import {
 import {DATA} from '../../utils/contans';
 import {Navigation} from 'react-native-navigation';
 import {connect} from 'react-redux';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import {onShowModalDetail} from '../../navigation';
 
 class Home extends Component {
@@ -59,11 +59,11 @@ class Home extends Component {
     let star = [];
 
     for (let i = 0; i < item.OverallStarRating; i++) {
-      star.push(<Icon name="ios-star" size={30} color="#fc9619" />);
+      star.push(<Icon name="ios-star" size={30} color="#F8A634" />);
     }
 
     for (let i = 0; i < 5 - item.OverallStarRating; i++) {
-      star.push(<Icon name="ios-star" size={30} color="#c3c1c1" />);
+      star.push(<Icon name="ios-star" size={30} color="#000000" />);
     }
 
     return (
@@ -78,15 +78,11 @@ class Home extends Component {
           onPress={() => this.onPressItem(item)}>
           <Text style={styles.title}>{item.title}</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.item}
-          onPress={() => this.onPressItem(item)}>
+        <View>
           <Text style={styles.address}>{item.address.en}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={{flexDirection: 'row'}}>{star}</TouchableOpacity>
-        <TouchableOpacity
-          style={styles.item}
-          onPress={() => this.onPressItem(item)}>
+        </View>
+          <View>
+          <Text style={{flexDirection: 'row'}}>{star}</Text>
             <Text
               numberOfLines={this.state.isShowAllContent ? item.subtitle.en.length : 1}
               style={styles.description}>
@@ -95,7 +91,7 @@ class Home extends Component {
             <TouchableWithoutFeedback onPress={this.onShowAllContent}>
               {ShowAllContent}
             </TouchableWithoutFeedback>
-        </TouchableOpacity>
+          </View>
       </View>
     );
   };
