@@ -8,7 +8,7 @@ export default class Button extends Component {
       <TouchableNativeFeedback
         onPress={submit ? submit : ''}
         background={TouchableNativeFeedback.SelectableBackground()}>
-        <View style={ styles.styleButton ? styles.styleButton1 : ''}>
+        <View style={ styles.styleButton1 ? styles.styleButton : ''}>
           <Text style={styles.fontSizeText}>
             {labelSubmit ? labelSubmit : ''}
           </Text>
