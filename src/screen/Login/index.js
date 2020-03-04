@@ -103,8 +103,8 @@ class Login extends Component {
             />
 
             <View style={styles.buttonSubmit}>
-              <Submit submit={this.onLogin} labelSubmit="Login" />
-              <Submit style={styles.styleButton1} submit={onRegister} labelSubmit="Register" />
+              <Submit styleButton={styles.styleButton} submit={this.onLogin} labelSubmit="Login" />
+              <Submit styleButton={styles.styleButton1} submit={onRegister} labelSubmit="Register" />
             </View>
           </ScrollView>
         </SafeAreaView>
@@ -138,6 +138,19 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     borderRadius: 15,
+  },
+  styleButton: {
+    flex: 1,
+    fontWeight: 'bold',
+    borderColor: 'pink',
+    borderWidth: 0.5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 350,
+    height: 55,
+    borderRadius: 15,
+    backgroundColor: '#6cf',
+    margin: 10,
   },
   styleButton1: {
     flex: 1,

@@ -8,8 +8,8 @@ export default class Button extends Component {
       <TouchableNativeFeedback
         onPress={submit ? submit : ''}
         background={TouchableNativeFeedback.SelectableBackground()}>
-        <View style={ styles.styleButton1 ? styles.styleButton : ''}>
-          <Text style={styles.fontSizeText}>
+        <View style={ styleButton ? styleButton : ''}>
+          <Text>
             {labelSubmit ? labelSubmit : ''}
           </Text>
         </View>
@@ -17,32 +17,3 @@ export default class Button extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  styleButton: {
-    flex: 1,
-    fontWeight: 'bold',
-    borderColor: 'pink',
-    borderWidth: 0.5,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 350,
-    height: 55,
-    borderRadius: 15,
-    backgroundColor: '#E91E63',
-    margin: 10,
-  },
-  styleButton1: {
-    flex: 1,
-    fontWeight: 'bold',
-    borderColor: 'pink',
-    borderWidth: 0.5,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 350,
-    height: 55,
-    borderRadius: 15,
-    backgroundColor: 'white',
-    margin: 10,
-  },
-});

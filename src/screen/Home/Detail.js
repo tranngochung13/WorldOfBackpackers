@@ -6,8 +6,6 @@ import {
   FlatList,
   View,
   ScrollView,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
 } from 'react-native';
 import {DATA} from '../../utils/contans';
 import {Navigation} from 'react-native-navigation';
@@ -54,62 +52,41 @@ export default class Detail extends Component {
 
     return (
       <View>
-        <View style={styles.body}>
-          <ScrollView>
-            <View style={styles.header}>
-              <Image style={styles.imageThumbnail} source={{uri: imageUrl}} />
-            </View>
-            <View style={{marginHorizontal: 10}}>
-              <FlatList
-                data={DATA}
-                renderItem={this.renderItem}
-                horizontal={true}
-                showsHorizontalScrollIndicator={false}
-                keyExtractor={(item, index) => index.toString()}
-                // onEndThread => load data
-                // onRefresh
-              />
-              <Text style={styles.title1}>{address.en}</Text>
-              <Text>{star}</Text>
-              <Text>{subtitle.en}</Text>
-              <Text style={styles.title1}>Similar</Text>
-              <FlatList
-                data={DATA}
-                renderItem={this.renderItem}
-                horizontal={true}
-                showsHorizontalScrollIndicator={false}
-                keyExtractor={(item, index) => index.toString()}
-                // onEndThread => load data
-                // onRefresh
-              />
-            </View>
-          </ScrollView>
-        </View>
-        
-        <View style={styles.footer}>
-          <TouchableWithoutFeedback>
-            <Text> Invite other </Text>
-          </TouchableWithoutFeedback>
-        </View>
+        <ScrollView>
+          <View style={styles.header}>
+            <Image style={styles.imageThumbnail} source={{uri: imageUrl}} />
+          </View>
+          <View style={{marginHorizontal: 10}}>
+            <FlatList
+              data={DATA}
+              renderItem={this.renderItem}
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+              keyExtractor={(item, index) => index.toString()}
+              // onEndThread => load data
+              // onRefresh
+            />
+            <Text style={styles.title1}>{address.en}</Text>
+            <Text>{star}</Text>
+            <Text>{subtitle.en}</Text>
+            <Text style={styles.title1}>Similar</Text>
+            <FlatList
+              data={DATA}
+              renderItem={this.renderItem}
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+              keyExtractor={(item, index) => index.toString()}
+              // onEndThread => load data
+              // onRefresh
+            />
+          </View>
+        </ScrollView>
+        <View></View>
       </View>
     );
   }
 }
 const styles = StyleSheet.create({
-  body: {
-    padding: 10,
-    paddingBottom: 50,
-  },
-  footer: {
-    position:'absolute',
-    bottom:0,
-    width:420,
-    height:50,   /* Height of the footer */
-    backgroundColor: '#6cf',
-    justifyContent: 'center',
-    alignItems: 'center',
-    fontSize: 20,
- },
   header: {
     position: 'relative',
   },
