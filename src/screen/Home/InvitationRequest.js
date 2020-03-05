@@ -7,13 +7,14 @@ import {
   View,
   ScrollView,
   TouchableOpacity,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import {DATA} from '../../utils/contans';
 import {Navigation} from 'react-native-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {onShowModalInvitationRequest} from '../../navigation';
+import Submit from '../../components/Button';
 
-export default class Detail extends Component {
+export default class InvitationRequest extends Component {
   constructor(props) {
     super(props);
     Navigation.events().bindComponent(this);
@@ -25,10 +26,6 @@ export default class Detail extends Component {
         <Image style={styles.imageThumbnail1} source={{uri: item.imageUrl}} />
       </>
     );
-  };
-
-  onPressItem = item => {
-    onShowModalInvitationRequest(item);
   };
 
   navigationButtonPressed = ({buttonId}) => {
@@ -90,34 +87,38 @@ export default class Detail extends Component {
             </View>
           </ScrollView>
         </View>
-      
+        
         <View style={styles.footer}>
-          <TouchableOpacity onPress={() => this.onPressItem(this.props.data)}>
-            <Text> {title} </Text>     
-          </TouchableOpacity>   
+           <Text> {title} </Text>
+           <Text> Invited you on this Jouney </Text>
+           <View style={{flex: 1, flexDirection: 'row', marginHorizontal: 40, justifyContent: 'center', alignItems: 'center',}}>
+              <Submit styleButton={styles.styleButton} labelSubmit="Accept" />
+              <Submit styleButton={styles.styleButton1} labelSubmit="Reject" />
+           </View>
+           
         </View>
       </View>
     );
   }
 }
 const styles = StyleSheet.create({
-  header: {
-    position: 'relative',
-  },
   body: {
     padding: 10,
-    paddingBottom: 40,
+    paddingBottom: 100,
   },
   footer: {
     position:'absolute',
     bottom:0,
     width:420,
-    height:40,   /* Height of the footer */
-    backgroundColor: '#6cf',
+    height:100,   /* Height of the footer */
+    backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
     fontSize: 20,
  },
+  header: {
+    position: 'relative',
+  },
   title: {
     position: 'absolute',
     marginTop: 275,
@@ -136,5 +137,32 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     fontSize: 20,
     fontWeight: 'bold',
+  },
+  styleButton: {
+    flex: 1,
+    fontWeight: 'bold',
+    borderColor: 'pink',
+    borderWidth: 0.5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 350,
+    height: 55,
+    borderRadius: 15,
+    backgroundColor: '#6cf',
+    margin: 10,
+  },
+  
+  styleButton1: {
+    flex: 1,
+    fontWeight: 'bold',
+    borderColor: 'pink',
+    borderWidth: 0.5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 350,
+    height: 55,
+    borderRadius: 15,
+    backgroundColor: 'white',
+    margin: 10,
   },
 });

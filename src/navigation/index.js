@@ -9,6 +9,7 @@ import Home from '../screen/Home/Home';
 import Profile from './../screen/Profile/index';
 import Detail from './../screen/Home/Detail';
 import Waiting from '../screen/waiting';
+import InvitationRequest from '../screen/Home/InvitationRequest';
 
 function ReduxProvider(Component) {
   return props => (
@@ -51,6 +52,11 @@ Navigation.registerComponent(
   'Detail',
   () => ReduxProvider(Detail),
   () => Detail,
+);
+Navigation.registerComponent(
+  'InvitationRequest',
+  () => ReduxProvider(InvitationRequest),
+  () => InvitationRequest,
 );
 
 export const onWaiting = () => {
@@ -168,6 +174,38 @@ export const onShowModalDetail = item => {
               topBar: {
                 title: {
                   text: item.title,
+                  fontSize: 30,
+                  alignment: 'center',
+                },
+                rightButtons: [
+                  {
+                    id: 'close',
+                    icon: require('../asset/image/comback.png'),
+                  },
+                ],
+              },
+            },
+          },
+        },
+      ],
+    },
+  });
+};
+
+export const onShowModalInvitationRequest = item => {
+  Navigation.showModal({
+    stack: {
+      children: [
+        {
+          component: {
+            name: 'InvitationRequest',
+            passProps: {
+              data: item,
+            },
+            options: {
+              topBar: {
+                title: {
+                  text: 'Invitation Request',
                   fontSize: 30,
                   alignment: 'center',
                 },
