@@ -10,6 +10,7 @@ import Profile from './../screen/Profile/index';
 import Detail from './../screen/Home/Detail';
 import Waiting from '../screen/waiting';
 import InvitationRequest from '../screen/Home/InvitationRequest';
+import Notification from '../screen/Home/Notification';
 
 function ReduxProvider(Component) {
   return props => (
@@ -58,6 +59,11 @@ Navigation.registerComponent(
   () => ReduxProvider(InvitationRequest),
   () => InvitationRequest,
 );
+Navigation.registerComponent(
+  'Notification',
+  () => ReduxProvider(Notification),
+  () => Notification,
+ );
 
 export const onWaiting = () => {
   Navigation.events().registerAppLaunchedListener(() => {
@@ -265,6 +271,32 @@ export const onChangeIntoMainScreen = () => {
                       topBar: {
                         title: {
                           text: 'Profile',
+                          alignment: 'center',
+                          fontSize: 30,
+                        },
+                      },
+                    },
+                  },
+                },
+              ],
+              options: {
+                bottomTab: {
+                  text: '',
+                  icon: require('../asset/image/Profile.png'),
+                },
+              },
+            },
+          },
+          {
+            stack: {
+              children: [
+                {
+                  component: {
+                    name: 'Notification',
+                    options: {
+                      topBar: {
+                        title: {
+                          text: 'Notification',
                           alignment: 'center',
                           fontSize: 30,
                         },
