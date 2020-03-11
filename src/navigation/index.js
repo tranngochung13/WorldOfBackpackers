@@ -12,6 +12,7 @@ import Waiting from '../screen/waiting';
 import InvitationRequest from '../screen/Home/InvitationRequest';
 import Notification from '../screen/Home/Notification';
 import Event from '../screen/Home/Event';
+import Friend from '../screen/Home/Friend';
 
 function ReduxProvider(Component) {
   return props => (
@@ -70,6 +71,11 @@ Navigation.registerComponent(
    () => ReduxProvider(Event),
    () => Event,
   );
+  Navigation.registerComponent(
+    'Friend',
+    () => ReduxProvider(Friend),
+    () => Friend,
+   );
 
 export const onWaiting = () => {
   Navigation.events().registerAppLaunchedListener(() => {
@@ -314,7 +320,7 @@ export const onChangeIntoMainScreen = () => {
               options: {
                 bottomTab: {
                   text: '',
-                  icon: require('../asset/image/Profile.png'),
+                  icon: require('../asset/image/notification.png'),
                 },
               },
             },
@@ -340,7 +346,33 @@ export const onChangeIntoMainScreen = () => {
               options: {
                 bottomTab: {
                   text: '',
-                  icon: require('../asset/image/Profile.png'),
+                  icon: require('../asset/image/event.png'),
+                },
+              },
+            },
+          },
+          {
+            stack: {
+              children: [
+                {
+                  component: {
+                    name: 'Friend',
+                    options: {
+                      topBar: {
+                        title: {
+                          text: 'Invited friends',
+                          alignment: 'center',
+                          fontSize: 30,
+                        },
+                      },
+                    },
+                  },
+                },
+              ],
+              options: {
+                bottomTab: {
+                  text: '',
+                  icon: require('../asset/image/invitation_friend.png'),
                 },
               },
             },
