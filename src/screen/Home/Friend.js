@@ -51,17 +51,20 @@ export default class Friend extends Component {
               onRequestClose={() => {
                 this.setModalVisible(!this.state.modalVisible);
               }}>
-              <View style={{flex: 1, justifyContent: 'center', alignItems: 'center',}}>
+              <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', }}>
                 <View>
                   <View style={styles.horizontal}>
                     <ActivityIndicator size="large" color="pink" />
+                  </View>                  
+                  <Text>Connecting with your partner</Text>
+                  <View style={{alignItems: 'center',}}>
+                    <TouchableOpacity style={{margin: 10, backgroundColor: 'aqua', padding: 10, borderRadius: 10}}
+                      onPress={() => {
+                        this.setModalVisible(!this.state.modalVisible);
+                      }}>
+                        <Text style={{fontSize: 20, color: 'white'}}>Cancel</Text>
+                    </TouchableOpacity>
                   </View>
-                  <TouchableOpacity
-                    onPress={() => {
-                      this.setModalVisible(!this.state.modalVisible);
-                    }}>
-                    <Text>Connecting with your partner</Text>
-                  </TouchableOpacity>
                 </View>
               </View>
             </Modal>
